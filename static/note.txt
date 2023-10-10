@@ -1,0 +1,1 @@
+## remove unneccesarry bootstrap files and source mappings, we only need the minified code
