@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Farmbot</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+    <style>
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        /* Navbar styles */
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+        }
+        
+        .number-inputs {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .number-inputs .mb-3 {
+            flex: 0 0 50%;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+
+<body class="dark-mode">
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Farmbot</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mongo.html">Mongo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Override Settings</h1>
+        <p>This doesn't work yet</p>
+        <form>
+            <div class="number-inputs">
+                <div class="mb-3">
+                    <label for="numberInput1" class="form-label">Pump On Hour</label>
+                    <input type="number" class="form-control" id="numberInput1" placeholder="Enter number">
+                </div>
+                <div class="mb-3">
+                    <label for="numberInput2" class="form-label">Pump On Min</label>
+                    <input type="number" class="form-control" id="numberInput2" placeholder="Enter number">
+                </div>
+                <div class="mb-3">
+                    <label for="numberInput3" class="form-label">Pump Off Min</label>
+                    <input type="number" class="form-control" id="numberInput3" placeholder="Enter number">
+                </div>
+                <div class="mb-3">
+                    <label for="numberInput4" class="form-label">Light On Hour</label>
+                    <input type="number" class="form-control" id="numberInput4" placeholder="Enter number">
+                </div>
+                <div class="mb-3">
+                    <label for="numberInput5" class="form-label">Light Off Hour</label>
+                    <input type="number" class="form-control" id="numberInput5" placeholder="Enter number">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="passphraseInput" class="form-label">Password</label>
+                <input type="password" class="form-control" id="passphraseInput" placeholder="Enter passphrase">
+            </div>
+            <button type="submit" class="btn btn-primary">Do it!</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
