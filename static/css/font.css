@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'SoehneHalbfett';
-    src: url('/soehne-halbfett.ttf') format('truetype');
-}
-
-body {
-    font-family: 'SoehneHalbfett';
-}
