@@ -1,0 +1,15 @@
+jobs:
+  your_job:
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Python script
+        run: python your_script.py
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
