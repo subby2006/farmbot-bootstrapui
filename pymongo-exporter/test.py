@@ -1,6 +1,3 @@
-# DO NOT PUSH TO APACHE DIR
-# RUN THIS SEPERATELY
-
 import json
 from flask import Flask, request, Response
 from pymongo import MongoClient
@@ -9,7 +6,7 @@ app = Flask(__name__)
 
 # Initialize the MongoDB client and select the appropriate database and collection
 # probably unsafe but the ssl certs shat themselves
-client = MongoClient('MONGODB_URL', tlsAllowInvalidCertificates=True)
+client = MongoClient('MONGODB_URI', tlsAllowInvalidCertificates=True)
 db = client['sensdata']
 collection = db['sensdata']
 
@@ -24,9 +21,9 @@ for document in latest_document:
     timestamp = document['timestamp']
 
 # Format the metrics in Prometheus exposition format
-prometheus_metrics = f'sens1 {{"value": {sens1_value}, "timestamp": "{timestamp}"}}\n'
-prometheus_metrics += f'sens2 {{"value": {sens2_value}, "timestamp": "{timestamp}"}}\n'
-prometheus_metrics += f'avg {{"value": {avg_value}, "timestamp": "{timestamp}"}}\n'
+prometheus_metrics = f'sens1{{custom_timestamp="{timestamp}Z"}} {sens1_value}\n'
+prometheus_metrics += f'sens2{{custom_timestamp="{timestamp}Z"}} {sens2_value}\n'
+prometheus_metrics += f'avg{{custom_timestamp="{timestamp}Z"}} {avg_value}\n'
 
 @app.route('/metrics', methods=['GET'])
 def metrics():
